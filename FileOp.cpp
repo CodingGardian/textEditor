@@ -10,7 +10,7 @@
 
 
 
-inline void readFile(std::string name, std::vector<char>& vec) {
+void readFile(std::string name, std::vector<char>& vec) {
     std::fstream temp(name.c_str(), std::ios::app | std::ios::binary | std::ios::in);
     vec.clear();
         while(1) {
@@ -27,7 +27,7 @@ inline void readFile(std::string name, std::vector<char>& vec) {
 }
 
 
-inline void readAndEraseFile(std::string name, std::vector<char>& vec) {
+void readAndEraseFile(std::string name, std::vector<char>& vec) {
     std::fstream temp(name.c_str(), std::ios::app | std::ios::binary | std::ios::in);
     while(1) {
             char peek = temp.peek();
@@ -45,13 +45,13 @@ inline void readAndEraseFile(std::string name, std::vector<char>& vec) {
     temp.close();
 }
 
-inline bool fileExist(std::string& name) {
+bool fileExist(std::string& name) {
     struct stat buf;
     return ( stat(name.c_str(), &buf) == 0);
 
 }
 
-inline bool fileExist(const char* name) {
+bool fileExist(const char* name) {
     struct stat buf;
     return ( stat(name, &buf) == 0);
 }
